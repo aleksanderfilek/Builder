@@ -1,0 +1,31 @@
+{
+    "Name" : "libhero",
+    "Type": "SharedLibrary",
+    "OutputDir": "lib",
+    "Compiler" : "g++",
+    "IncludesDir" : [
+    ],
+    "LibsDir" : [
+    ],
+    "Libs" : [
+        "-lSDL2main", 
+        "-lSDL2", 
+        "-lSDL2_ttf",
+        "-lSDL2_mixer",
+        "-lSOIL",
+        "-lglew32",
+        "-lopengl32",
+        "-lglu32",
+        "-lm",
+        "-lcomdlg32",
+        "-lole32"
+    ],
+    "CompilerDefines" : [
+        "-DHERO_DEBUG",
+        "-DHERO=__declspec(dllexport)"
+    ],
+    "BuilderDefines" : [
+        "-DHERO_DEBUG",
+        "-DHERO=__declspec(dllexport)"
+    ]
+}
