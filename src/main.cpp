@@ -1,10 +1,11 @@
 #include<iostream>
 
 #include"profile.hpp"
+#include"directory.hpp"
 
 int main(int argc, char* argv[])
 {
-  if(argc == 0)
+  if(argc <= 1)
   {
     std::cout<<"[Error] Too few arguments"<<std::endl;
     return -1;
@@ -15,6 +16,9 @@ int main(int argc, char* argv[])
   {
     return -1;
   }
+
+  auto includeFiles = gatherFiles(".", ".hpp");
+  auto sourceFiles = gatherFiles(".", ".cpp");
 
   return 0;
 }
