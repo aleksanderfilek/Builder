@@ -2,6 +2,7 @@
 
 #include<iostream>
 #include<dirent.h>
+#include<fstream>
 
 std::vector<std::string> gatherFiles(const std::string& root, const std::string& ext)
 {
@@ -50,4 +51,29 @@ std::vector<std::string> gatherFiles(const std::string& root, const std::string&
   }
 
   return files;
+}
+
+bool directoryExsists(const std::string& path)
+{
+  DIR *dir;
+  if((dir = opendir(path.c_str())) != nullptr)
+  {
+    closedir(dir);
+    return true;
+  }
+
+  return false;
+}
+
+bool fileExsists(const std::string& path)
+{
+  std::ifstream file(path);
+
+  if(file.is_open())
+  {
+    file.close();
+    return true;
+  }
+
+  return false;
 }
