@@ -3,6 +3,7 @@
 #include<iostream>
 #include<dirent.h>
 #include<fstream>
+#include<direct.h>
 
 std::vector<std::string> gatherFiles(const std::string& root, const std::string& ext)
 {
@@ -73,6 +74,30 @@ bool fileExsists(const std::string& path)
   {
     file.close();
     return true;
+  }
+
+  return false;
+}
+
+bool createDirectory(const std::string& path)
+{
+  if(!directoryExsists(path))
+  {
+    size_t position = path.find_last_of("/");
+    if(position == std::string::npos)
+    {
+      if(_mkdir(path.c_str()) == 0)
+        return true;
+    }
+
+    std::string subPath(path, 0, position);
+    std::cout<<subPath<<std::endl;
+    bool result = createDirectory(subPath);
+    if(result)
+    {
+      if(_mkdir(path.c_str()) == 0)
+        return true;
+    }
   }
 
   return false;
