@@ -86,19 +86,18 @@ bool createDirectory(const std::string& path)
     size_t position = path.find_last_of("/");
     if(position == std::string::npos)
     {
-      if(_mkdir(path.c_str()) == 0)
-        return true;
+      return _mkdir(path.c_str()) == 0;
     }
 
     std::string subPath(path, 0, position);
-    std::cout<<subPath<<std::endl;
     bool result = createDirectory(subPath);
     if(result)
     {
-      if(_mkdir(path.c_str()) == 0)
-        return true;
+      return _mkdir(path.c_str()) == 0;
     }
+
+    return false;
   }
 
-  return false;
+  return true;
 }

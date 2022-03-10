@@ -5,7 +5,7 @@
 
 int main(int argc, char* argv[])
 {
-  if(argc <= 1)
+  if(argc < 2)
   {
     std::cout<<"[Error] Too few arguments"<<std::endl;
     return -1;
@@ -19,8 +19,7 @@ int main(int argc, char* argv[])
 
   auto includeFiles = gatherFiles(".", ".hpp");
   auto sourceFiles = gatherFiles(".", ".cpp");
-
-
+  
   return 0;
 }
 
