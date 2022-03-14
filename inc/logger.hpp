@@ -37,6 +37,5 @@ public:
 
   static void log(LogType type, const std::string& text);
   static bool dump();
-  static void print();
   static void clear();
 };

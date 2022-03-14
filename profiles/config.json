@@ -25,7 +25,5 @@
         "-DHERO=__declspec(dllexport)"
     ],
     "BuilderDefines" : [
-        "-DHERO_DEBUG",
-        "-DHERO=__declspec(dllexport)"
     ]
 }

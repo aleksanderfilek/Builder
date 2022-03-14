@@ -1,10 +1,12 @@
 #include<iostream>
 
-#include"profile.hpp"
-#include"directory.hpp"
+#include"compiler.hpp"
+#include"logger.hpp"
 
 int main(int argc, char* argv[])
 {
+  Logger logger;
+
   if(argc < 2)
   {
     std::cout<<"[Error] Too few arguments"<<std::endl;
@@ -17,10 +19,12 @@ int main(int argc, char* argv[])
     return -1;
   }
 
-  auto includeFiles = gatherFiles(".", ".hpp");
-  auto sourceFiles = gatherFiles(".", ".cpp");
-  
-  
+  Compiler compiler(profile);
+  compiler.findFiles();
+  compiler.compile();
+  compiler.link();
+
+  logger.dump();
 
   return 0;
 }
