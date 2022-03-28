@@ -1,7 +1,7 @@
 {
-    "Name" : "libhero",
-    "Type": "SharedLibrary",
-    "OutputDir": "lib",
+    "Name" : "Test.exe",
+    "Type": "Executable",
+    "OutputDir": ".",
     "Compiler" : "g++",
     "IncludesDir" : [
     ],
