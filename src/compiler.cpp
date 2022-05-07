@@ -19,13 +19,13 @@ Compiler::~Compiler()
 
 void Compiler::findFiles()
 {
-  std::vector<std::string> includeFiles = gatherFiles(".", ".hpp");
-  for(auto file: includeFiles)
-  {
-    size_t startPosition = file.find_first_of("/") + 1;
-    size_t endPosition = file.find_last_of("/");
-    headers.insert(std::string(file, startPosition, endPosition - startPosition));
-  }
+  // std::vector<std::string> includeFiles = gatherFiles(".", ".hpp");
+  // for(auto file: includeFiles)
+  // {
+  //   size_t startPosition = file.find_first_of("/") + 1;
+  //   size_t endPosition = file.find_last_of("/");
+  //   headers.insert(std::string(file, startPosition, endPosition - startPosition));
+  // }
 
   sources = gatherFiles(".", ".cpp");
   for(auto& file: sources)
@@ -53,11 +53,11 @@ bool Compiler::compile()
     startCmd.append(" -fPIC");
   }
 
-  for(auto header: headers)
-  {
-    startCmd.append(" -I");
-    startCmd.append(header);
-  }
+  // for(auto header: headers)
+  // {
+  //   startCmd.append(" -I");
+  //   startCmd.append(header);
+  // }
 
   for(auto header: profile.includesDir)
   {
@@ -143,6 +143,8 @@ bool Compiler::link()
   {
     cmd.append(" -shared");
   }
+
+  createDirectory(profile.outputDir);
 
   runProcess(sources.size(),cmd);
   Logger::log(LogType::Msg, "Linked");
