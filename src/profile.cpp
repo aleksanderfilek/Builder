@@ -30,6 +30,7 @@ bool Profile::load(const std::string& path)
   file.at("Name").get_to(name);
   file.at("Type").get_to(type);
   file.at("Compiler").get_to(compiler);
+  file.at("Extension").get_to(sourceExtension);
 
   // optional 
   if (file.find("OutputDir") != file.end())

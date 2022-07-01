@@ -27,7 +27,7 @@ void Compiler::findFiles()
   //   headers.insert(std::string(file, startPosition, endPosition - startPosition));
   // }
 
-  sources = gatherFiles(".", ".cpp");
+  sources = gatherFiles(".", profile.sourceExtension);
   for(auto& file: sources)
   {
     size_t startPosition = file.find_first_of("/") + 1;

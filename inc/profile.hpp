@@ -14,6 +14,7 @@ struct Profile
 {
   std::string name;
   Type type;
+  std::string sourceExtension;
   std::string compiler;
   std::string outputDir;
   std::vector<std::string> includesDir;
