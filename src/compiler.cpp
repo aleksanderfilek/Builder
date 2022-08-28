@@ -46,7 +46,7 @@ bool Compiler::compile()
     startCmd.append(define);
   }
 
-  startCmd.append(" -c");
+  startCmd.append(" -g3 -Wall -c");
 
   if(profile.type == Type::SharedLibrary)
   {
